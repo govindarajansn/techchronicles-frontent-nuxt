@@ -69,27 +69,27 @@ watchEffect(async () => {
   if (user.value) {
     const { auth } = useSupabaseClient();
     const sessionToken = await auth.getSession();
+    await navigateTo("/");
+    // if (sessionToken && sessionToken.data && sessionToken.data.session) {
+    //   const authToken = sessionToken.data.session.access_token;
 
-    if (sessionToken && sessionToken.data && sessionToken.data.session) {
-      const authToken = sessionToken.data.session.access_token;
+    //   const response = await fetch("/api/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({ authToken })
+    //   });
 
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ authToken })
-      });
-
-      // handle the response as necessary
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        await navigateTo("/");
-      } else {
-        console.error("Failed to login:", await response.text());
-      }
-    }
+    //   // handle the response as necessary
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     console.log(data);
+        
+    //   } else {
+    //     console.error("Failed to login:", await response.text());
+    //   }
+    // }
   }
 });
 
