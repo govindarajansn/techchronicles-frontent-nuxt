@@ -33,6 +33,7 @@ const toggleLike = async () => {
       postId: post.id,
       likeType: "HEART" // Modify this as per your requirements (maybe based on some UI interaction)
     };
+    const config = useRuntimeConfig()
     const response = await fetch(`${config.public.apiUrl}/v1/like`, {
       method: "POST",
       headers: {

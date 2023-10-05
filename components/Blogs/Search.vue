@@ -46,6 +46,7 @@ const checkSearchTerm = () => {
 const performSearch = async () => {
   if (searchTerm.value.trim()) {
     try {
+      const config = useRuntimeConfig()
       const response = await fetch(
         `${config.public.apiUrl}/v1/blogs/search?search=${searchTerm.value}`
       );

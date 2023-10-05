@@ -40,6 +40,7 @@ const postUrl = async () => {
   }
   const sessionToken = await auth.getSession();
   const authToken = sessionToken.data.session.access_token;
+  const config = useRuntimeConfig()
   const response = await fetch(`${config.public.apiUrl}/v1/post`, {
     method: "POST",
     headers: {
@@ -60,6 +61,7 @@ const postUrl = async () => {
 };
 
 // Initial fetch to get existing posts
+const config = useRuntimeConfig()
 const { data } = await useFetch(`${config.public.apiUrl}/v1/post`);
 </script>
 

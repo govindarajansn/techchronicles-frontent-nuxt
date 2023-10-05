@@ -30,7 +30,6 @@
 <script setup lang="ts">
 const currentPage = ref(1);
 const config = useRuntimeConfig()
-console.log(config.public.apiUrl)
 
 const { data } = await useFetch(
   `${config.public.apiUrl}/v1/blogs?page=${currentPage.value}`
@@ -45,6 +44,7 @@ const totalPages = computed(() => {
 
 const fetchBlogsDataClientSide = async (page: number) => {
   try {
+    const config = useRuntimeConfig()
     const response = await fetch(`${config.public.apiUrl}/v1/blogs?page=${page}`);
     const data = await response.json();
     blogsData.value = data;

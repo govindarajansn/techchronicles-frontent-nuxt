@@ -12,6 +12,7 @@ const favoritesBlog = ref([]);
 
 const sessionToken = await auth.getSession();
 const authToken = sessionToken.data.session?.access_token;
+const config = useRuntimeConfig()
 const url = `${config.public.apiUrl}/v1/favorites`;
 
 const { data } = await useFetch(url, {
