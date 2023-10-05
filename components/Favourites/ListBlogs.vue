@@ -1,8 +1,13 @@
 <template>
   <div class="fav-container">
     <div class="fav-grid">
-      <div v-for="favorite in favorites" :key="favorite.id">
-        <FavouritesFavBlogs :blog="favorite.blog" />
+      <div v-if="favorites.length > 0">
+        <div v-for="favorite in favorites" :key="favorite.id">
+          <FavouritesFavBlogs :blog="favorite.blog" />
+        </div>
+      </div>
+      <div v-else class="no-favorites">
+        Add Favorites in Blog page
       </div>
     </div>
   </div>
@@ -13,6 +18,10 @@ defineProps(["favorites"]);
 </script>
 
 <style scoped>
+
+.no-favorites {
+  margin-left: 8px;
+}
 .fav-grid {
   display: flex;
   flex-flow: row wrap;

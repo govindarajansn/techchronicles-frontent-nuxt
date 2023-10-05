@@ -8,7 +8,7 @@
         v-if="post.profile.image_url"
       />
       <div class="user-details">
-        <span>{{ post.profile.email }}</span>
+        <span>{{ post.profile.first_name }} {{ post.profile.last_name }}</span>
       </div>
     </div>
     <div class="post-content">

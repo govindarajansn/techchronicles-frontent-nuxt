@@ -4,10 +4,11 @@
       <div class="favorite-icon">
         <heartFilled class="favorited" />
       </div>
-      <div class="blog-img-container">
+      <div class="blog-img-container" v-if="blog && blog.image">
         <img class="blog-img" :src="blog.image" :alt="blog.name" />
       </div>
-      <h1 class="blog-card-h1">{{ blog.name }}</h1>
+
+      <h1 class="blog-card-h1" v-if="blog && blog.name">{{ blog.name }}</h1>
     </div>
   </div>
 </template>
