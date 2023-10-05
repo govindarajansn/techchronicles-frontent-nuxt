@@ -105,21 +105,28 @@ const login = async () => {
     setTimeout(() => {
       authError.value = "";
     }, 5000);
+  } else {
+    navigateTo("/")
   }
 };
 
 const loginWithGoogle = async () => {
   const { error } = await supabase.auth.signInWithOAuth({
-    provider: "google"
+    provider: "google",
+    options:{
+      redirectTo: window.location.href
+    }
   });
   if (error) authError.value = error.message;
 };
 
 const loginWithGithub = async () => {
   const response = await supabase.auth.signInWithOAuth({
-    provider: "github"
+    provider: "github",
+    options: {
+      redirectTo: window.location.href
+    }
   });
-  console.log(response.data);
 };
 
 const clearError = () => {

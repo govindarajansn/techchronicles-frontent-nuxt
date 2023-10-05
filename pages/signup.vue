@@ -67,13 +67,16 @@ const register = async () => {
         email: email.value,
         password: password.value
       });
-      console.log(data);
       if (error) {
         loading.value = false;
         errorMessage.value = "Registration failed";
         setTimeout(() => {
           errorMessage.value = "";
         }, 5000);
+      } else {
+        if(data){
+          navigateTo("/")
+        }
       }
     } else {
       errorMessage.value = "Passwords do not match!";
