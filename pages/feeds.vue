@@ -40,7 +40,7 @@ const postUrl = async () => {
   }
   const sessionToken = await auth.getSession();
   const authToken = sessionToken.data.session.access_token;
-  const response = await fetch(`${config.apiUrl}/v1/post`, {
+  const response = await fetch(`${config.public.apiUrl}/v1/post`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const postUrl = async () => {
 };
 
 // Initial fetch to get existing posts
-const { data } = await useFetch(`${config.apiUrl}/v1/post`);
+const { data } = await useFetch(`${config.public.apiUrl}/v1/post`);
 </script>
 
 <style scoped>

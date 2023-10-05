@@ -47,7 +47,7 @@ const performSearch = async () => {
   if (searchTerm.value.trim()) {
     try {
       const response = await fetch(
-        `${config.apiUrl}/v1/blogs/search?search=${searchTerm.value}`
+        `${config.public.apiUrl}/v1/blogs/search?search=${searchTerm.value}`
       );
       if (response.ok) {
         searchResults.value = await response.json();

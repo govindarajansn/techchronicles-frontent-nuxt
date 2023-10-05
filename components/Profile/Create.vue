@@ -57,7 +57,7 @@ const { auth } = useSupabaseClient();
 const sessionToken = await auth.getSession();
 
 const authToken = sessionToken.data.session.access_token;
-const url = `${config.apiUrl}/v1/profile`;
+const url = `${config.public.apiUrl}/v1/profile`;
 
 const { data } = await useFetch(url, {
   method: "GET",
@@ -79,7 +79,7 @@ const UpdateProfile = async () => {
   const { auth } = useSupabaseClient();
   const sessionToken = await auth.getSession();
   const authToken = sessionToken.data.session.access_token;
-  const url = `${config.apiUrl}/v1/profile`;
+  const url = `${config.public.apiUrl}/v1/profile`;
   const payload = {
     first_name: fname.value,
     last_name: lname.value,
