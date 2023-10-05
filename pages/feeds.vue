@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Feed from "~/components/feeds/feed.vue";
+import Feed from "../components/feeds/Feed.vue";
 import { ref } from "vue";
 
 const { auth } = useSupabaseClient();
