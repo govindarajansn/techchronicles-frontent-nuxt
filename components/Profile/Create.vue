@@ -1,26 +1,39 @@
 <template>
+  <div class="neo-brutalism-profile">
+    <img :src="data.image_url != null ? data.image_url : '/defaultProfile.jpeg'" alt="Profile Image"
+      class="profile-image" />
+    <h1>{{ fname }} {{ lname }}</h1>
+    <!-- <div class="info-spec">{{ profile.role }} at {{ profile.company }}</div> -->
+    <div class="dotted-line"></div>
+    <div class="label-block">
+      <h3 class="profile-heading-3">Short Bio</h3>
+      <div class="profile-bio">{{ shortBio }}</div>
+    </div>
+    <div class="label-block">
+      <h5 class="profile-heading-4">Email</h5>
+      <div class="profile-bio">{{ email }}</div>
+    </div>
+    <div class="label-block">
+      <h5 class="profile-heading-4">LinkedIn Url</h5>
+      <div class="profile-bio">{{ linkedInUrl }}</div>
+    </div>
+    <div class="label-block">
+      <h5 class="profile-heading-4">GitHub Url</h5>
+      <div class="profile-bio">{{ gitHubUrl }}</div>
+    </div>
+  </div>
+  <div class="vertical-dotted"></div>
   <div class="profile-main-container">
     <h1 class="profile-heading-1">Profile</h1>
     <div class="neo-brutalism-form">
       <label for="name">First Name:</label>
-      <input
-        type="text"
-        class="profile-input-field"
-        id="name"
-        v-model="fname"
-      />
+      <input type="text" class="profile-input-field" id="name" v-model="fname" />
       <label for="name">Last Name:</label>
       <input type="text" id="name" v-model="lname" />
       <label for="name">Short Bio:</label>
       <input type="text" id="name" v-model="shortBio" />
       <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        v-model="email"
-        :disabled="true"
-        class="email"
-      />
+      <input type="email" id="email" v-model="email" :disabled="true" class="email" />
       <label for="name">LinkedIn:</label>
       <input type="text" id="name" v-model="linkedInUrl" />
       <label for="name">GitHub:</label>
@@ -91,6 +104,78 @@ const UpdateProfile = async () => {
 </script>
 
 <style scoped>
+.dotted-line {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #bbb7b4;
+  width: 100%;
+}
+
+.vertical-dotted {
+  border-left: 1px dotted #bbb7b4;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.neo-brutalism-profile {
+  max-width: 250px;
+  margin: 40px 10px 40px 40px;
+  padding: 30px 0px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+.label-block {
+  padding: 10px 10px 10px 0;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* This will make the image round */
+  object-fit: cover;
+  /* Ensures the image covers the dimensions without distortion */
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.neo-brutalism-profile h1 {
+  text-align: left;
+  margin: 0;
+}
+
+.profile-heading-3 {
+  text-align: left;
+  margin: 0;
+}
+
+.profile-heading-4 {
+  text-align: left;
+  margin: 0;
+}
+
+.info-spec {
+  text-align: left;
+}
+
+.profile-bio {
+  color: black;
+  text-align: left;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.neo-brutalism-profile div[id] {
+  color: black;
+  border-bottom: 3px solid black;
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+
 .profile-main-container {
   margin: 20px;
 }

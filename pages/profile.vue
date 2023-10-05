@@ -2,8 +2,6 @@
   <div>
     <!-- <BlogsCard/> -->
     <div class="main-profile">
-      <ProfileInfo />
-      <div class="vertical-dotted"></div>
       <ProfileCreate />
     </div>
   </div>
