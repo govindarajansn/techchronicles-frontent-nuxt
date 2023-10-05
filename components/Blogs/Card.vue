@@ -55,7 +55,7 @@ const addToFavorites = async (blog) => {
   const { auth } = useSupabaseClient();
   const sessionToken = await auth.getSession();
   const authToken = sessionToken.data.session.access_token;
-  const url = "http://localhost:3001/v1/favorites";
+  const url = `${config.apiUrl}/v1/favorites`;
   const payload = {
     companyBlogId: blog.id
   };

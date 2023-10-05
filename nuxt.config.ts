@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NODE_ENV === "production" ?  process.env.NUXT_PUBLIC_BACKEND_HOST : "http://localhost:3001"
+    }
+  },
   head: {
     link: [
       {
